@@ -15,6 +15,4 @@ class User < ApplicationRecord
     validates :birthday
   end
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/i, message: 'Include both letters and numbers' }
-  # length: { minimum: 6 , message: "is too short (minimum is 6 characters)"}
-  # message: validates :email  "メールアドレスに「＠」を入れてください。#{@user.email}内に「@」がありません"
 end

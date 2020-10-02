@@ -6,11 +6,12 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
 
-    it "nickname、email、姓、名、誕生日、password、password_confirmationが存在すれば登録できること" do
-      expect(@user).to be_valid
-      
+    context '内容に問題ない場合' do
+      it "nickname、email、姓、名、誕生日、password、password_confirmationが存在すれば登録できること" do
+       expect(@user).to be_valid
+      end
     end
-
+    context '内容に問題がある場合' do
     # ニックネーム ---------------------
     it "nicknameが空では登録できないこと" do
       @user.nickname = ""
@@ -49,12 +50,6 @@ RSpec.describe User, type: :model do
       @user.password_confirmation = ""
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
-    end
-
-    it "passwordが6文字以上の英数字であれば登録できること" do
-      @user.password = "aaaa000"
-      @user.password_confirmation ="aaaa000"
-      expect(@user).to be_valid
     end
 
     it "passwordが5文字以下の英数字であれば登録できないこと" do
