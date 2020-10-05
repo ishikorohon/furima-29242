@@ -31,7 +31,7 @@
 | price               | integer | null: false                     |
 | shipping_id         | integer | null: false                     |
 | delivery            | integer | null: false                     |
-| date                | integer | null: false                     |
+| date_id             | integer | null: false                     |
 | prefecture_id       | integer | null: false                     |
 | user_id             | integer | null: false, foreign_key: :true |
 
